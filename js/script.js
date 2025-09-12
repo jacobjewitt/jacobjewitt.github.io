@@ -11,29 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle the filter functionality on projects and blog pages
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const items = document.querySelectorAll('.project-card, .blog-post, .certification-card');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to the clicked button
-            button.classList.add('active');
-
-            const category = button.getAttribute('data-category');
-
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.classList.remove('hide');
-                } else {
-                    item.classList.add('hide');
-                }
-            });
-        });
-    });
-
     // Toggle the mobile menu
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
@@ -45,26 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // New: Scroll-activated timeline animation
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.5
-    };
-
-    const timelineObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    timelineItems.forEach(item => {
-        timelineObserver.observe(item);
-    });
 });
 
 // Get the canvas element and its 2D rendering context
