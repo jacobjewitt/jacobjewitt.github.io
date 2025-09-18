@@ -9,7 +9,8 @@
     box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
     width: 100%;
     overflow-x: hidden;
 }
@@ -34,7 +35,9 @@ body {
     z-index: 1;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: var(--green-accent);
 }
 
@@ -234,7 +237,8 @@ section {
     margin-bottom: 0.5rem;
 }
 
-.company-name, .job-dates {
+.company-name,
+.job-dates {
     color: #aaa;
     margin: 0;
     font-size: 0.9rem;
@@ -256,7 +260,8 @@ section {
     gap: 1.5rem;
 }
 
-.project-card, .blog-post {
+.project-card,
+.blog-post {
     display: block;
     background-color: var(--light-gray);
     border-left: 3px solid var(--green-accent);
@@ -267,12 +272,14 @@ section {
     margin-bottom: 1.5rem;
 }
 
-.project-card:hover, .blog-post:hover {
+.project-card:hover,
+.blog-post:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 255, 102, 0.2);
 }
 
-.project-card.hide, .blog-post.hide {
+.project-card.hide,
+.blog-post.hide {
     display: none;
 }
 
@@ -302,7 +309,8 @@ section {
     margin-bottom: 0.5rem;
 }
 
-.certification-card .issuer, .certification-card .date {
+.certification-card .issuer,
+.certification-card .date {
     color: #aaa;
     margin: 0;
     font-size: 0.9rem;
@@ -318,6 +326,7 @@ section {
     text-transform: uppercase;
     margin-top: 1rem;
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -495,28 +504,15 @@ footer {
         grid-template-columns: 1fr;
     }
 
-        .footer-container {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-    
-    .footer-links, .footer-social, .footer-cta {
-        width: 100%;
-        margin-bottom: 1.5rem;
-    }
-
-    .social-icons a {
-        margin: 0 0.5rem;
-    }
-
     .footer-container {
         flex-direction: column;
         text-align: center;
         align-items: center;
     }
-    
-    .footer-links, .footer-social, .footer-cta {
+
+    .footer-links,
+    .footer-social,
+    .footer-cta {
         width: 100%;
         margin-bottom: 1.5rem;
     }
@@ -524,4 +520,88 @@ footer {
     .social-icons a {
         margin: 0 0.5rem;
     }
+
+    .quiz-navigation {
+        text-align: center;
+    }
+}
+
+/* Update for single-question view */
+.quiz-question {
+    display: none;
+    /* Hide all questions by default */
+}
+
+.quiz-question.active {
+    display: block;
+    /* Show the active question */
+}
+
+/* Style for navigation buttons */
+.quiz-navigation {
+    text-align: right;
+}
+
+.quiz-question input[type="radio"] {
+    /* Hide the default radio button */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 2%;
+    border: 2px solid var(--green-accent);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.quiz-question input[type="radio"]::before {
+    /* Create the inner dot for the checked state */
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    background-color: var(--green-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    /* Initially scale to 0 (invisible) */
+    transition: transform 0.2s ease-in-out;
+}
+
+.quiz-question input[type="radio"]:checked::before {
+    /* Scale up the inner dot when the radio button is checked */
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.quiz-question input[type="radio"]:hover {
+    box-shadow: 0 0 5px var(--green-accent);
+}
+
+.quiz-question label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Progress Bar Styles */
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background-color: #3d3d3d;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--green-accent);
+    transition: width 0.3s ease-in-out;
 }
