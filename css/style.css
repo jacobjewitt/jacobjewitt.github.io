@@ -699,12 +699,19 @@ footer {
     }
 
     .blog-search-sticky {
-        top: 0;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-        margin-left: -1rem;
-        margin-right: -1rem;
+        top: 83px;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+    }
+
+    .filter-wrap {
+        width: 100%;
+    }
+
+    .filter-toggle-btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .blog-filter-dropdown {
