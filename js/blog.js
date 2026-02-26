@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const posts          = document.querySelectorAll('.blog-post');
     const noResults      = document.getElementById('no-results');
 
-    let activeTag   = 'all';
-    let searchQuery = '';
+    const activeTags = new Set(); // empty = show all (same as "All")
+    let searchQuery  = '';
 
     // --- Filter dropdown toggle ---
     filterToggle.addEventListener('click', (e) => {
@@ -31,10 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let visible = 0;
 
         posts.forEach(post => {
-            const tags  = (post.dataset.tags || '').split(',');
-            const title = post.querySelector('h2').textContent.toLowerCase();
-
-            const matchesTag    = activeTag === 'all' || tags.includes(activeTag);
+            const postTags    = (post.dataset.tags || '').split(',');
+            const title       = post.querySelector('h2').textContent.toLowerCase();
+            const matchesTag  = activeTags.size === 0 || [...activeTags].every(t => postTags.includes(t));
             const matchesSearch = searchQuery === '' || title.includes(searchQuery);
 
             post.style.display = (matchesTag && matchesSearch) ? '' : 'none';
@@ -44,6 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
         noResults.style.display = visible === 0 ? 'block' : 'none';
     }
 
+    function syncButtonStates() {
+        tagButtons.forEach(btn => {
+            const filter = btn.dataset.filter;
+            if (filter === 'all') {
+                btn.classList.toggle('active', activeTags.size === 0);
+            } else {
+                btn.classList.toggle('active', activeTags.has(filter));
+            }
+        });
+    }
+
     searchInput.addEventListener('input', () => {
         searchQuery = searchInput.value.toLowerCase().trim();
         filterPosts();
@@ -51,15 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tagButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            tagButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeTag = btn.dataset.filter;
+            const filter = btn.dataset.filter;
 
-            // Close dropdown after selecting a tag
-            filterDropdown.classList.remove('open');
-            filterToggle.classList.remove('active');
+            if (filter === 'all') {
+                activeTags.clear();
+            } else {
+                if (activeTags.has(filter)) {
+                    activeTags.delete(filter);
+                } else {
+                    activeTags.add(filter);
+                }
+            }
 
+            syncButtonStates();
             filterPosts();
         });
     });
+
+    // Initialise
+    syncButtonStates();
 });
