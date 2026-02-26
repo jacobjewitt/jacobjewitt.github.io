@@ -3,6 +3,26 @@
     --green-accent: #00ff66;
     --white-text: #f0f0f0;
     --light-gray: #333333;
+    --scrollbar-alpha: 0;
+}
+
+/* Scrollbar — Mac-style: hidden until scrolling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--dark-gray);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, calc(var(--scrollbar-alpha) * 0.25));
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 102, calc(var(--scrollbar-alpha) * 0.7));
+}
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, calc(var(--scrollbar-alpha) * 0.25)) var(--dark-gray);
 }
 
 * {

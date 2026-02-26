@@ -11,6 +11,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Mac-style scrollbar: fade in on scroll, fade out after idle
+let scrollTimer;
+let scrollbarOpacity = 0;
+let fadeRAF;
+
+function fadeScrollbar(targetOpacity) {
+    cancelAnimationFrame(fadeRAF);
+    const step = targetOpacity > scrollbarOpacity ? 0.05 : -0.03;
+    function tick() {
+        scrollbarOpacity = Math.min(1, Math.max(0, scrollbarOpacity + step));
+        document.documentElement.style.setProperty('--scrollbar-alpha', scrollbarOpacity);
+        if (scrollbarOpacity !== targetOpacity && !(scrollbarOpacity <= 0 && targetOpacity <= 0) && !(scrollbarOpacity >= 1 && targetOpacity >= 1)) {
+            fadeRAF = requestAnimationFrame(tick);
+        }
+    }
+    fadeRAF = requestAnimationFrame(tick);
+}
+
+window.addEventListener('scroll', () => {
+    document.documentElement.classList.add('is-scrolling');
+    fadeScrollbar(1);
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+        document.documentElement.classList.remove('is-scrolling');
+        fadeScrollbar(0);
+    }, 1200);
+}, { passive: true });
+
 // Get the canvas element and its 2D rendering context
 const canvas = document.getElementById('particle-canvas');
 const ctx = canvas.getContext('2d');

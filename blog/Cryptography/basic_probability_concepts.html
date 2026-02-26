@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Probability Concepts</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="gradient-overlay"></div>
+    <header>
+        <div class="logo"><a href="../../index.html">🛡️ Jacob Jewitt</a></div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="main-nav">
+            <a href="../../index.html">About Me</a>
+            <a href="../../projects.html">Projects</a>
+            <a href="../../certs.html">Achievements</a>
+            <a href="../../blog.html" class="active">Blog</a>
+            <a href="../../contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="work-experience-section">
+            <h2>Basic Probability Concepts</h2>
+            <div class="work-experience-container">
+                <div class="job-card">
+                    <h3>Introduction</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere quod at, vitae dolor velit repellat quia ipsa atque dolorum sunt harum doloremque asperiores odio eligendi nisi libero quas aut? Earum.</p>
+                </div>
+                <div class="job-card">
+                    <h3>Title 1</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere quod at, vitae dolor velit repellat quia ipsa atque dolorum sunt harum doloremque asperiores odio eligendi nisi libero quas aut? Earum.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz-section">
+            <h2>Test Your Knowledge! 🧠</h2>
+            <div class="quiz-container">
+                <div class="job-card">
+
+                    <form id="securityQuiz">
+                        <div class="quiz-question active">
+                            <p><strong>1. A sample space contains all possible outcomes of an experiment. If a fair
+                                    coin is flipped, what is P(Heads)?</strong></p>
+                            <label><input type="radio" name="q1" value="A"> A. 0</label><br>
+                            <label><input type="radio" name="q1" value="B"> B. 0.25</label><br>
+                            <label><input type="radio" name="q1" value="C"> C. 0.5</label><br>
+                            <label><input type="radio" name="q1" value="D"> D. 1</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>2. Two events are mutually exclusive. If P(A) = 0.3 and P(B) = 0.4, what is
+                                    P(A ∪ B)?</strong></p>
+                            <label><input type="radio" name="q2" value="A"> A. 0.12</label><br>
+                            <label><input type="radio" name="q2" value="B"> B. 0.58</label><br>
+                            <label><input type="radio" name="q2" value="C"> C. 0.70</label><br>
+                            <label><input type="radio" name="q2" value="D"> D. 1.0</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>3. Which formula correctly expresses the multiplication rule for two
+                                    independent events A and B?</strong></p>
+                            <label><input type="radio" name="q3" value="A"> A. P(A ∩ B) = P(A) + P(B)</label><br>
+                            <label><input type="radio" name="q3" value="B"> B. P(A ∩ B) = P(A) × P(B)</label><br>
+                            <label><input type="radio" name="q3" value="C"> C. P(A ∩ B) = P(A) − P(B)</label><br>
+                            <label><input type="radio" name="q3" value="D"> D. P(A ∩ B) = P(A) / P(B)</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>4. What does P(A | B) represent?</strong></p>
+                            <label><input type="radio" name="q4" value="A"> A. The probability of A or B
+                                occurring.</label><br>
+                            <label><input type="radio" name="q4" value="B"> B. The probability of A given that B has
+                                occurred.</label><br>
+                            <label><input type="radio" name="q4" value="C"> C. The probability of neither A nor B
+                                occurring.</label><br>
+                            <label><input type="radio" name="q4" value="D"> D. The probability of B given that A has
+                                occurred.</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>5. A cryptographic key is 8 bits long. Assuming each bit is chosen uniformly
+                                    at random, how many possible keys exist?</strong></p>
+                            <label><input type="radio" name="q5" value="A"> A. 8</label><br>
+                            <label><input type="radio" name="q5" value="B"> B. 16</label><br>
+                            <label><input type="radio" name="q5" value="C"> C. 128</label><br>
+                            <label><input type="radio" name="q5" value="D"> D. 256</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>6. If an attacker guesses a random 8-bit key, what is the probability they
+                                    guess correctly on the first attempt?</strong></p>
+                            <label><input type="radio" name="q6" value="A"> A. 1/8</label><br>
+                            <label><input type="radio" name="q6" value="B"> B. 1/16</label><br>
+                            <label><input type="radio" name="q6" value="C"> C. 1/128</label><br>
+                            <label><input type="radio" name="q6" value="D"> D. 1/256</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>7. The "birthday paradox" in cryptography relates to which concept?</strong></p>
+                            <label><input type="radio" name="q7" value="A"> A. Conditional probability</label><br>
+                            <label><input type="radio" name="q7" value="B"> B. Collision probability</label><br>
+                            <label><input type="radio" name="q7" value="C"> C. Mutually exclusive events</label><br>
+                            <label><input type="radio" name="q7" value="D"> D. Sample space reduction</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>8. For a cipher to be considered "perfectly secret" (as defined by Shannon),
+                                    which condition must hold?</strong></p>
+                            <label><input type="radio" name="q8" value="A"> A. P(plaintext | ciphertext) > P(plaintext)</label><br>
+                            <label><input type="radio" name="q8" value="B"> B. P(plaintext | ciphertext) = 0</label><br>
+                            <label><input type="radio" name="q8" value="C"> C. P(plaintext | ciphertext) = P(plaintext)</label><br>
+                            <label><input type="radio" name="q8" value="D"> D. P(plaintext | ciphertext) = 1</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>9. Two fair dice are rolled. What is the probability of getting a sum of
+                                    12?</strong></p>
+                            <label><input type="radio" name="q9" value="A"> A. 1/6</label><br>
+                            <label><input type="radio" name="q9" value="B"> B. 1/12</label><br>
+                            <label><input type="radio" name="q9" value="C"> C. 1/36</label><br>
+                            <label><input type="radio" name="q9" value="D"> D. 2/36</label><br>
+                        </div>
+                        <div class="quiz-question">
+                            <p><strong>10. Which probability value indicates a certain event?</strong></p>
+                            <label><input type="radio" name="q10" value="A"> A. 0</label><br>
+                            <label><input type="radio" name="q10" value="B"> B. 0.5</label><br>
+                            <label><input type="radio" name="q10" value="C"> C. 0.99</label><br>
+                            <label><input type="radio" name="q10" value="D"> D. 1</label><br>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button type="button" class="btn next-btn">Next</button>
+                            <button type="submit" class="btn submit-btn" style="display: none;">Submit Answers</button>
+                        </div>
+                    </form>
+                    <div id="quiz-results" class="results-container"></div>
+                    <button type="button" class="btn restart-btn" style="display: none;">Restart Quiz</button>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-button">
+            <a href="../../blog.html" class="btn">Go Back</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-cta">
+                <h3>Let's Connect</h3>
+                <p>Feel free to reach out to collaborate on a project or just to say hello!</p>
+                <a href="../../contact.html" class="btn">Contact Me</a>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../../index.html">About Me</a></li>
+                    <li><a href="../../projects.html">Projects</a></li>
+                    <li><a href="../../blog.html">Blog</a></li>
+                    <li><a href="../../certs.html">Achievements</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Me</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/jacob-jewitt"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/jacobjewitt"><i class="fab fa-github"></i></a>
+                    <a href="https://tryhackme.com/p/jhj1998"><i class="fas fa-terminal"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jacob Jewitt. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../js/quiz.js"></script>
+    <script src="../../js/script.js"></script>
+
+</body>
+
+</html>
