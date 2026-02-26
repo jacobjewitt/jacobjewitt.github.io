@@ -326,7 +326,6 @@ section {
     background-color: rgba(26, 26, 26, 0.97);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    border-left: 3px solid var(--green-accent);
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
@@ -755,6 +754,11 @@ footer {
 /* Style for navigation buttons */
 .quiz-navigation {
     text-align: right;
+}
+
+.submit-btn,
+.restart-btn {
+    display: none;
 }
 
 .quiz-question input[type="radio"] {

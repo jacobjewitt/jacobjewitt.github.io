@@ -15,20 +15,33 @@ const SOCIAL_LINKS = [
     { href: 'https://tryhackme.com/p/jhj1998',          icon: 'fas fa-terminal' },
 ];
 
+// Compute the relative base path based on how deep the current page is.
+// Root pages → '' | blog/Cryptography/ → '../../'
+// Derived from the stylesheet href to work correctly under any protocol (http, file://).
+function getBasePath() {
+    const stylesheet = document.querySelector('link[href*="style.css"]');
+    if (!stylesheet) return '';
+    const depth = (stylesheet.getAttribute('href').match(/\.\.\//g) || []).length;
+    return '../'.repeat(depth);
+}
+
 function getCurrentPage() {
-    const page = window.location.pathname.split('/').pop();
-    return page || 'index.html';
+    return window.location.pathname.split('/').pop() || 'index.html';
 }
 
 function buildHeader() {
     const currentPage = getCurrentPage();
+    const basePath = getBasePath();
+    const inBlog = window.location.pathname.includes('/blog/');
+
     const navItems = NAV_LINKS.map(link => {
-        const isActive = link.href === currentPage ? ' class="active"' : '';
-        return `<a href="${link.href}"${isActive}>${link.label}</a>`;
+        const isActive = link.href === currentPage || (inBlog && link.href === 'blog.html');
+        const activeAttr = isActive ? ' class="active"' : '';
+        return `<a href="${basePath}${link.href}"${activeAttr}>${link.label}</a>`;
     }).join('\n                ');
 
     return `
-        <div class="logo"><a href="index.html">🛡️ Jacob Jewitt</a></div>
+        <div class="logo"><a href="${basePath}index.html">🛡️ Jacob Jewitt</a></div>
         <button class="menu-toggle" aria-label="Toggle navigation">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -40,8 +53,14 @@ function buildHeader() {
 }
 
 function buildFooter() {
+    const basePath = getBasePath();
+
     const socialIcons = SOCIAL_LINKS.map(link =>
         `<a href="${link.href}"><i class="${link.icon}"></i></a>`
+    ).join('\n                    ');
+
+    const quickLinks = NAV_LINKS.map(link =>
+        `<li><a href="${basePath}${link.href}">${link.label}</a></li>`
     ).join('\n                    ');
 
     return `
@@ -49,15 +68,12 @@ function buildFooter() {
             <div class="footer-cta">
                 <h3>Let's Connect</h3>
                 <p>Feel free to reach out to collaborate on a project or just to say hello!</p>
-                <a href="contact.html" class="btn">Contact Me</a>
+                <a href="${basePath}contact.html" class="btn">Contact Me</a>
             </div>
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="index.html">About Me</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="certs.html">Achievements</a></li>
+                    ${quickLinks}
                 </ul>
             </div>
             <div class="footer-social">
