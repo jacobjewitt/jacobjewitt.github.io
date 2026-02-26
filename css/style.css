@@ -285,7 +285,7 @@ section {
 
 .blog-posts {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
@@ -293,62 +293,74 @@ section {
     margin-bottom: 0;
 }
 
-/* Blog Filter Styles */
-.blog-filters {
+/* Blog Page — Sticky Search Bar */
+.blog-search-sticky {
+    position: sticky;
+    top: 83px;
+    z-index: 99;
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-    padding: 1.5rem 2rem;
-    background-color: rgba(30, 30, 30, 0.8);
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: rgba(26, 26, 26, 0.97);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-left: 3px solid var(--green-accent);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
-.blog-search-wrapper {
+/* Filter toggle button (left of search bar) */
+.filter-wrap {
     position: relative;
+    flex-shrink: 0;
 }
 
-.blog-search-wrapper .search-icon {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #888;
-    font-size: 0.9rem;
-    pointer-events: none;
-}
-
-.blog-search-input {
-    width: 100%;
-    padding: 0.75rem 1rem 0.75rem 2.5rem;
-    background-color: var(--dark-gray);
-    border: 1px solid #444;
-    border-radius: 4px;
-    color: var(--white-text);
-    font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-sizing: border-box;
-}
-
-.blog-search-input:focus {
-    outline: none;
-    border-color: var(--green-accent);
-    box-shadow: 0 0 0 2px rgba(0, 255, 102, 0.15);
-}
-
-.blog-search-input::placeholder {
-    color: #666;
-}
-
-.blog-tag-filters {
+.filter-toggle-btn {
     display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1rem;
+    background-color: transparent;
+    color: var(--green-accent);
+    border: 1px solid var(--green-accent);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-toggle-btn:hover,
+.filter-toggle-btn.active {
+    background-color: var(--green-accent);
+    color: var(--dark-gray);
+}
+
+/* Filter dropdown panel */
+.blog-filter-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding-top: 0.25rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1rem;
+    background-color: #252525;
+    border: 1px solid rgba(0, 255, 102, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    z-index: 200;
+    min-width: 240px;
+}
+
+.blog-filter-dropdown.open {
+    display: flex;
 }
 
 .tag-filter {
@@ -372,6 +384,46 @@ section {
     color: var(--dark-gray);
 }
 
+/* Search input (fills remaining width in sticky bar) */
+.blog-search-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.blog-search-wrapper .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+.blog-search-input {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.5rem;
+    background-color: var(--dark-gray);
+    border: 1px solid #555;
+    border-radius: 4px;
+    color: var(--white-text);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.blog-search-input:focus {
+    outline: none;
+    border-color: var(--green-accent);
+    box-shadow: 0 0 0 2px rgba(0, 255, 102, 0.15);
+}
+
+.blog-search-input::placeholder {
+    color: #666;
+}
+
+/* Post tag badges on each card */
 .post-tags {
     display: flex;
     flex-wrap: wrap;
@@ -640,6 +692,25 @@ footer {
 
     .quiz-navigation {
         text-align: center;
+    }
+
+    .blog-posts {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-search-sticky {
+        top: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
+
+    .blog-filter-dropdown {
+        left: 0;
+        right: 0;
+        min-width: unset;
     }
 }
 
