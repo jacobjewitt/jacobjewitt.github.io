@@ -1,17 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Make the navigation link active based on the current page
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('nav a');
-
-    navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-
-    // Toggle the mobile menu
+    // Mobile menu toggle (header is injected by components.js first)
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
 
@@ -21,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.classList.toggle('active');
         });
     }
-
 });
 
 // Get the canvas element and its 2D rendering context

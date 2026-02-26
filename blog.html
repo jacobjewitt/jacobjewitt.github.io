@@ -4,184 +4,197 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Blog</title>
-        <link rel="stylesheet" href="css\style.css">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
         <canvas id="particle-canvas"></canvas>
         <div class="gradient-overlay"></div>
-        <header>
-            <div class="logo"><a href="index.html">🛡️ Jacob Jewitt</a></div>
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav class="main-nav">
-                <a href="index.html" class="active">About Me</a>
-                <a href="projects.html">Projects</a>
-                <a href="certs.html">Achievements</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </header>
+        <header></header>
 
         <main class="container">
             <h1>My Blog ✏️</h1>
+
+            <div class="blog-filters">
+                <input type="text" id="blog-search" class="blog-search-input" placeholder="Search posts...">
+                <div class="blog-tag-filters">
+                    <button class="tag-filter active" data-filter="all">All</button>
+                    <button class="tag-filter" data-filter="networking">Networking</button>
+                    <button class="tag-filter" data-filter="windows">Windows</button>
+                    <button class="tag-filter" data-filter="linux">Linux</button>
+                    <button class="tag-filter" data-filter="web">Web</button>
+                    <button class="tag-filter" data-filter="offensive">Offensive</button>
+                    <button class="tag-filter" data-filter="defensive">Defensive</button>
+                    <button class="tag-filter" data-filter="cryptography">Cryptography</button>
+                </div>
+            </div>
+
             <section class="blog-posts">
-                <article class="blog-post">
+                <article class="blog-post" data-tags="defensive">
                     <h2>Security Fundamentals: Defensive Security Tooling 🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Defensive</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Defensive Secuirty🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="defensive">
+                    <h2>Security Fundamentals: Defensive Security 🔒</h2>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Defensive</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
+                <article class="blog-post" data-tags="offensive">
                     <h2>Security Fundamentals: Offensive Security Tools 🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Offensive</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Web Hacking🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="web,offensive">
+                    <h2>Security Fundamentals: Web Hacking 🔒</h2>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Web</span>
+                        <span class="post-tag">Offensive</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: MetaSploit🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="offensive">
+                    <h2>Security Fundamentals: MetaSploit 🔒</h2>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Offensive</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Cryptography🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="cryptography">
+                    <h2>Security Fundamentals: Cryptography 🔒</h2>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Cryptography</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Networking Fundamentals🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="networking">
+                    <h2>Security Fundamentals: Networking Fundamentals 🔒</h2>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Networking</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Windows Powershell and Command Line🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="windows">
+                    <h2>Security Fundamentals: Windows PowerShell and Command Line 🔒</h2>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Windows</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Windows Active Directory🔒</h2>
-                    <p class="post-meta">Foundations part 2</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="windows">
+                    <h2>Security Fundamentals: Windows Active Directory 🔒</h2>
+                    <p class="post-meta">Foundations part 2 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Windows</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Windows Foundations🔒</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="windows">
+                    <h2>Security Fundamentals: Windows Foundations 🔒</h2>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Windows</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
+                <article class="blog-post" data-tags="linux">
                     <h2>Security Fundamentals: Linux Foundations 🔒</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Linux</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: How Websites Work🔒</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="web">
+                    <h2>Security Fundamentals: How Websites Work 🔒</h2>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Web</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: HTTP in Depth🔒</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="web,networking">
+                    <h2>Security Fundamentals: HTTP in Depth 🔒</h2>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Web</span>
+                        <span class="post-tag">Networking</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: DNS in Depth🔒</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
+                <article class="blog-post" data-tags="networking">
+                    <h2>Security Fundamentals: DNS in Depth 🔒</h2>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Networking</span>
+                    </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet officiis adipisci quas magnam, fugit reiciendis id velit maxime! Quidem ab aut perspiciatis a unde? Quidem dolor sapiente beatae autem animi.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: Packets and Frames 📝</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolorum temporibus totam iure odit, accusantium reiciendis repellat alias tempora sed doloribus excepturi inventore nihil. Consectetur neque voluptatibus enim minus fugiat.</p>
+                <article class="blog-post" data-tags="networking">
+                    <h2>Security Fundamentals: Packets and Frames 🔒</h2>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Networking</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolorum temporibus totam iure odit, accusantium reiciendis repellat alias tempora sed doloribus excepturi inventore nihil. Consectetur neque voluptatibus enim minus fugiat.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: OSI Model 🛡️</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est itaque dignissimos nulla possimus vitae nostrum vero sequi consectetur, delectus vel fuga architecto dicta enim accusamus maiores quasi sunt quos officiis.</p>
+                <article class="blog-post" data-tags="networking">
+                    <h2>Security Fundamentals: OSI Model 🔒</h2>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Networking</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est itaque dignissimos nulla possimus vitae nostrum vero sequi consectetur, delectus vel fuga architecto dicta enim accusamus maiores quasi sunt quos officiis.</p>
                     <a href="#" class="btn">View More</a>
                 </article>
-                <article class="blog-post">
-                    <h2>Security Fundamentals: What is Networking? 🔧</h2>
-                    <p class="post-meta">Foundations part 1</p>
-                    <p class="post-meta">Published 12/09/2025</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab similique, numquam quia in laudantium quibusdam ex, labore exercitationem et incidunt alias dolore aperiam tempora ipsam voluptate possimus expedita! Modi, quia?</p>
+                <article class="blog-post" data-tags="networking">
+                    <h2>Security Fundamentals: What is Networking? 🔒</h2>
+                    <p class="post-meta">Foundations part 1 · Published 12/09/2025</p>
+                    <div class="post-tags">
+                        <span class="post-tag">Networking</span>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab similique, numquam quia in laudantium quibusdam ex, labore exercitationem et incidunt alias dolore aperiam tempora ipsam voluptate possimus expedita! Modi, quia?</p>
                     <a href="#" class="btn">View More</a>
                 </article>
+
+                <p id="no-results" class="no-results">No posts match your search.</p>
             </section>
         </main>
 
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="footer-cta">
-                    <h3>Let's Connect</h3>
-                    <p>Feel free to reach out to collaborate on a project or just to say hello!</p>
-                    <a href="contact.html" class="btn">Contact Me</a>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">About Me</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="certs.html">Achievements</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h3>Follow Me</h3>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/jacob-jewitt"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/jacobjewitt"><i class="fab fa-github"></i></a>
-                        <a href="https://tryhackme.com/p/jhj1998"><i class="fas fa-terminal"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Jacob Jewitt. All Rights Reserved.</p>
-            </div>
-        </footer>
+        <footer class="site-footer"></footer>
 
-        <script src="js\script.js"></script>
+        <script src="js/components.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/blog.js"></script>
     </body>
 
 </html>
