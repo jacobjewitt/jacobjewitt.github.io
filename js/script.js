@@ -81,9 +81,42 @@ class Particle {
     }
 }
 
+const PARTICLE_STORAGE_KEY = 'particle_state';
+
+function saveParticleState() {
+    if (!particlesArray) return;
+    try {
+        sessionStorage.setItem(PARTICLE_STORAGE_KEY, JSON.stringify({
+            width: canvas.width,
+            height: canvas.height,
+            particles: particlesArray.map(p => ({
+                x: p.x, y: p.y,
+                directionX: p.directionX, directionY: p.directionY,
+                size: p.size
+            }))
+        }));
+    } catch (e) { /* sessionStorage unavailable */ }
+}
+
 // Function to initialize particles
 function init() {
     particlesArray = [];
+
+    // Try to restore saved state from the previous page
+    try {
+        const saved = sessionStorage.getItem(PARTICLE_STORAGE_KEY);
+        if (saved) {
+            const state = JSON.parse(saved);
+            if (state.width === canvas.width && state.height === canvas.height) {
+                state.particles.forEach(p => {
+                    particlesArray.push(new Particle(p.x, p.y, p.directionX, p.directionY, p.size, '#00ff66'));
+                });
+                return;
+            }
+        }
+    } catch (e) { /* fall through to fresh init */ }
+
+    // Fresh random init (first load or viewport changed)
     const numberOfParticles = (canvas.height * canvas.width) / 9000;
     for (let i = 0; i < numberOfParticles; i++) {
         let size = (Math.random() * 5) + 1;
@@ -91,10 +124,11 @@ function init() {
         let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
         let directionX = (Math.random() * 0.5) - 0.25;
         let directionY = (Math.random() * 0.5) - 0.25;
-        let color = '#00ff66';
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+        particlesArray.push(new Particle(x, y, directionX, directionY, size, '#00ff66'));
     }
 }
+
+window.addEventListener('beforeunload', saveParticleState);
 
 // Function to animate the particles
 function animate() {
